@@ -1,0 +1,396 @@
+/* ===================== */
+/* RESET */
+/* ===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===================== */
+/* BODY */
+/* ===================== */
+body {
+    font-family: Arial, sans-serif;
+    background: #FAF9F6;
+    color: #2D3748;
+    overflow-x: hidden;
+}
+
+/* ===================== */
+/* PAGE D'ACCUEIL */
+/* ===================== */
+#welcome-screen {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(
+        rgba(139, 92, 246, 0.45),
+        rgba(139, 92, 246, 0.45)
+    ),
+    url("introduction/mains.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.overlay {
+    padding: 20px;
+    width: 100%;
+}
+
+.overlay h1 {
+    color: white;
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+#start-btn {
+    padding: 18px 40px;
+    border: none;
+    border-radius: 40px;
+    background: white;
+    color: #8B5CF6;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#start-btn:hover {
+    transform: scale(1.05);
+}
+
+/* ===================== */
+/* LOGIQUE D'AFFICHAGE */
+/* ===================== */
+.hidden {
+    display: none;
+}
+
+/* ===================== */
+/* STRUCTURE DES SECTIONS (ONE-PAGE CENTRÉ CHIC) */
+/* ===================== */
+#intro-section, #video-intro, #rencontre {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    background: #FAF9F6;
+}
+
+.intro-container, .section-container {
+    width: 100%;
+    max-width: 600px; /* Taille optimale pour rester chic et lisible */
+    text-align: center;
+    margin: auto;
+}
+
+.intro-container h2, .section-container h2 {
+    color: #8B5CF6;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+}
+
+.intro-container p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+    font-size: 1.2rem;
+}
+
+/* ===================== */
+/* DESIGN DES VIDÉOS (PARFAITEMENT CENTRÉES) */
+/* ===================== */
+.video-wrapper, .souvenir-media {
+    width: 100%;
+    max-width: 380px; /* Format type "Story" vertical premium sur mobile et ordi */
+    margin: 0 auto 30px auto; /* Le "auto" à gauche et à droite force le centrage parfait */
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.12);
+    background: #000; /* Fond noir pendant le chargement */
+}
+
+/* --- CORRECTION POUR TOUTES LES VIDÉOS DU SITE --- */
+.video-wrapper, .souvenir-media, .video-frame {
+    width: 100%;
+    max-width: 380px;           /* Même taille premium partout */
+    margin: 0 auto 25px auto;   /* Le "auto" à gauche et à droite force le centrage parfait */
+    background: #000;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(139, 92, 246, 0.15);
+}
+
+.video-wrapper video, .souvenir-media video, .video-frame video {
+    width: 100% !important;
+    height: auto !important;
+    display: block;
+}
+
+/* ===================== */
+/* CARTE SOUVENIR (RENCONTRE) */
+/* ===================== */
+.souvenir-card {
+    background: white;
+    border-radius: 25px;
+    padding: 20px; /* Espace interne pour l'effet écrin */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    width: 100%;
+}
+
+.souvenir-text {
+    padding: 20px 10px 10px 10px;
+    text-align: center;
+}
+
+.souvenir-text p,.caption-card p {
+text-align: center !important;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #4A5568;
+    text-align: center;
+}
+
+/* ===================== */
+/* MOBILE RESPONSIVE OPTIMISATIONS */
+/* ===================== */
+@media(max-width: 768px) {
+    .overlay h1 {
+        font-size: 2.5rem;
+    }
+
+    #start-btn {
+        width: 90%;
+        max-width: 300px;
+    }
+
+    .intro-container h2, .section-container h2 {
+        font-size: 2rem;
+    }
+
+    .intro-container p, .souvenir-text p {
+        font-size: 1rem;
+    }
+    
+    .video-wrapper, .souvenir-media {
+        max-width: 100%; /* S'adapte parfaitement à la largeur du smartphone */
+    }
+}
+/* Layout élargi pour la galerie photo */
+.wide-wrapper {
+    max-width: 500px; /* Un peu plus large pour la grille */
+}
+
+.gallery-subtitle {
+    font-size: 1rem;
+    color: #718096;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+/* Grille photo/vidéo (2 colonnes fluides) */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    width: 100%;
+}
+
+.gallery-grid img, .gallery-grid video {
+    width: 100%;
+    height: 220px; /* Hauteur fixe pour aligner parfaitement les blocs */
+    object-fit: cover; /* Recadre proprement sans déformer */
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    background-color: #000;
+    transition: transform 0.3s ease;
+}
+
+.gallery-grid img:active, .gallery-grid video:active {
+    transform: scale(0.98); /* Petit effet d'enfoncement tactile sur téléphone */
+}
+
+/* Boîte de la lettre finale */
+.final-letter-box {
+    background: white;
+    padding: 40px 25px;
+    border-radius: 30px;
+    box-shadow: 0 15px 40px rgba(139, 92, 246, 0.08);
+    border: 1px solid rgba(139, 92, 246, 0.1);
+    width: 100%;
+}
+
+.final-letter-box p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #2D3748;
+    margin-bottom: 15px;
+    text-align: left; /* Style lettre classique */
+}
+
+.final-letter-box p:last-of-type {
+    margin-bottom: 0;
+    font-weight: 600;
+    text-align: center;
+    color: #8B5CF6;
+    margin-top: 25px;
+}
+
+.infinity-symbol {
+    display: block;
+    font-size: 2.5rem;
+    color: #8B5CF6;
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* Ajustements responsives pour petits écrans */
+@media(max-width: 480px) {
+    .gallery-grid img, .gallery-grid video {
+        height: 160px; /* Un peu plus petit sur les petits téléphones */
+    }
+    .final-letter-box {
+        padding: 30px 20px;
+    }
+}
+/* --- LE PETIT ÉCRIN BLANC POUR LES TEXTES SOUS LES VIDÉOS --- */
+.caption-card {
+    background: white;
+    margin-top: 15px;
+    padding: 20px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 380px; /* Aligné pile sur la largeur de tes vidéos */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Ombre douce chic */
+    margin: 15px auto 0 auto !important;
+}
+.romantic-title {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 25px;
+}
+/* ========================================== */
+/* GALERIE CATALOGUE (VERSION FINALE PRO)     */
+/* ========================================== */
+
+/* 1. Centrage absolu du titre et du sous-titre */
+#catalogue-section {
+    padding-top: 100px !important;    /* Décale le catalogue vers le bas (l'éloigne de la section drôle) */
+    padding-bottom: 100px !important; /* Décale la suite vers le bas (l'éloigne de la lettre de fin) */
+}
+#catalogue-section .centered-content {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#catalogue-section .gallery-subtitle {
+    font-size: 1rem;
+    color: #718096;
+    margin-top: -15px;
+    font-style: italic;
+    max-width: 80%;
+}
+
+/* 2. La Grille Pleine Largeur (Style Instagram/Pinterest sans bordures) */
+.full-width-section {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.gallery-grid {
+    display: grid;
+    /* 3 colonnes sur téléphone, 4 sur tablette, 5 sur ordi pour un rendu optimal */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 2px; /* Espace très fin pour le look pro */
+    width: 100vw; /* Prend toute la largeur de l'écran visible */
+    padding: 0;
+}
+
+/* Force les médias à être des carrés parfaits et cliquables */
+.gallery-item {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Carré parfait magique */
+    object-fit: cover; /* Recadre sans déformer */
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    background-color: #000; /* Fond noir pendant le chargement */
+}
+
+/* Effet au survol (sur ordi) */
+@media (hover: hover) {
+    .gallery-item:hover {
+        transform: scale(1.02);
+        z-index: 2;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+}
+
+/* 3. Style de la Visionneuse Plein Écran (Lightbox) */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95); /* Fond très sombre */
+    z-index: 1000; /* Toujours au-dessus de tout */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#lightbox.show-lightbox {
+    opacity: 1;
+    visibility: visible;
+}
+
+#close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1010;
+}
+
+.lightbox-content-wrapper {
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-media {
+    max-width: 100%;
+    max-height: 90vh; /* S'adapte à la hauteur de l'écran */
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.lightbox-media.hidden {
+    display: none;
+}
+
+/* Ajustements responsives pour la grille */
+@media(min-width: 600px) {
+    .gallery-grid { grid-template-columns: repeat(4, 1fr); } /* 4 colonnes tablette */
+}
+@media(min-width: 1024px) {
+    .gallery-grid { grid-template-columns: repeat(5, 1fr); } /* 5 colonnes ordi */
+}
