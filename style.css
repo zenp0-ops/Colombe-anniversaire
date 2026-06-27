@@ -394,3 +394,32 @@ text-align: center !important;
 @media(min-width: 1024px) {
     .gallery-grid { grid-template-columns: repeat(5, 1fr); } /* 5 colonnes ordi */
 }
+/* 1. On force le Body et le conteneur principal à tout centrer */
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Empêche le site de glisser horizontalement */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre tout le contenu global */
+    background-color: #FAF9F6;
+}
+
+#main-story {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Force toutes les sections à s'aligner au milieu */
+}
+
+/* 2. On s'assure que chaque section occupe bien toute la largeur disponible */
+.story-section {
+    width: 100%;
+    box-sizing: border-box; /* Évite que les paddings ne poussent le site vers la droite */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
